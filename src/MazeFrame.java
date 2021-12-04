@@ -25,13 +25,16 @@ public class MazeFrame extends JFrame {
 
     public void createPoints(){
         this.points = new double[(maze.cols+1)*(maze.rows+1)][2];
-        double weidth = (double)(500/(maze.cols));
-        double heigth =  (double)(500/(maze.rows));
+        int max = maze.cols;
+        if(maze.cols<maze.rows)
+            max = maze.rows;
+        double weidth = (double)(500/(max));
+        double heigth =  (double)(500/(max));
         int counter = 0;
         for (int i = 0; i <= maze.rows; i++) {
             for (int j = 0; j <= maze.cols; j++) {
-                points[counter][0] = 100 + i*heigth;
-                points[counter][1] = 100 + j*weidth;
+                points[counter][1] = 100 + i*heigth;
+                points[counter][0] = 100 + j*weidth;
                 counter++;
             }
         }
